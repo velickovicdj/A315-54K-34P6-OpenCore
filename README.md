@@ -2,7 +2,7 @@
 
 This repository contains prebuilt OpenCore EFI files used for booting macOS Big Sur on Acer Aspire A315-54K-34P6.
 
-<img src="screenshot.png">
+<img src="screenshot.jpg">
 
 
 ## Hardware:

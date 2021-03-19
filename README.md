@@ -25,7 +25,7 @@ This repository contains prebuilt OpenCore EFI files used for booting macOS Big 
 - Audio (Speakers, headphones and internal microphone).
 - iCloud and App Store.
 
-Thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless) I managed to get Wi-Fi to work by replacing `Qualcomm Atheros QCA9377` with `Intel AC 3160` and adding their  `itlwm` kernel extension in order for the Wi-Fi adapter to be recognized. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
+Thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless) I managed to get Wi-Fi to work by replacing `Qualcomm Atheros QCA9377` with `Intel AC 3160` and adding their Intel Wi-Fi driver in order for my wireless adapter to be recognized in the macOS. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
 
 ## Not tested:
 - iMessage and FaceTime.

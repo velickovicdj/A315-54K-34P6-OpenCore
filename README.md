@@ -37,7 +37,7 @@ I didn't yet have a chance to test iMessages and FaceTime as I don't own an iPho
 
 [OpenIntelWireless](https://github.com/OpenIntelWireless) also provides drivers for Intel Wireless Bluetooth Firmware and there are plenty of people out there who got the Bluetooth to work, but for whatever reason, I couldn't do the same with mine. Maybe I've bought faulty hardware. Again, I will update the repo in the future.
 
-I went with an Intel for the Wi-Fi and Bluetooth as it was a cheaper solution (I got it for like 5 bucks used) and to be honest, I have no complaints whatsoever. The Wi-Fi works perfectly, I would say even better than what I had with `QCA9377` in Linux. Will see for the Bluetooth if I get it to work in the future. Nevertheless, I can live without it for now. I don't even remember when was the last time I used Bluetooth on a PC to get things done, but it would still be nice to have it all working. For now, I'm just happy that I have 1 more USB port and that don't have to use a USB Wi-Fi adapter anymore.
+I went with an Intel for the Wi-Fi and Bluetooth as it was a cheaper solution (I got it for like 5 bucks used) and to be honest, I have no complaints whatsoever. The Wi-Fi works perfectly, I would say even better than what I had with `QCA9377` in Linux. Will see for the Bluetooth if I get it to work in the future. Nevertheless, I can live without it for now. I don't even remember when was the last time I used Bluetooth on a PC to get things done, but it would still be nice to have it all working. For now, I'm just happy that I have 1 more USB port and that I don't have to use a USB Wi-Fi adapter anymore.
 
 If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for Apple-branded Broadcom wireless counterparts.
 

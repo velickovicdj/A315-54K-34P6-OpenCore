@@ -50,8 +50,8 @@ If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for
 
 [**RehabMan**](https://github.com/RehabMan) for the great guides.
 
-[**alex.daoud**](https://github.com/alexandred) for VoodooI2C kext and making it work with the trackpad.
+[**alexandred**](https://github.com/alexandred) for VoodooI2C kext and making it work with the trackpad.
 
-[**acidanthera**](https://github.com/acidanthera) for awesome kexts and first-class support for hackintosh enthusiasts.
+[**Acidanthera**](https://github.com/acidanthera) for awesome kexts and first-class support for hackintosh enthusiasts.
 
 [**OpenIntelWireless**](https://github.com/OpenIntelWireless) for Intel WI-FI ant Bluetooth drivers.

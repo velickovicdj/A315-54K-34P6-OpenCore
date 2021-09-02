@@ -9,7 +9,7 @@ This repository contains prebuilt OpenCore files used for booting macOS Big Sur 
 This is not a guide nor a plug and play EFI folder. This OpenCore configuration is optimized for my specific hardware (Even some kexts are custom compiled to match it). Use it only as a reference!
 
 
-## Hardware:
+## :computer: Hardware:
 
 |                |                          	 |
 |----------------|-------------------------------|
@@ -23,7 +23,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 |**AUDIO** 		 |`Realtek ALC255`				 |
 |**Trackpad**    |`I2C Synaptics`				 |
 
-## Working:
+## :white_check_mark: Working:
 
 - Graphics Acceleration.
 - Battery readout.
@@ -39,7 +39,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 
 Thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless) I managed to get Wi-Fi to work by replacing my `Qualcomm Atheros QCA9377` with `Intel AC 3160` and adding their Intel Wi-Fi driver in order for my adapter to be recognized and fully working in macOS. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
 
-## Bluetooth fix:
+## :bulb: Bluetooth fix:
 
 So it's been months since I successfully booted into macOS Big Sur with this configuration and it wasn't till today that I found a solution for the Bluetooth issue. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprising, it was something quite unexpected. Apparently, it seems like my Intel wireless adapter has some incompatible pins, or may I say a different arrangement from the original one (`QCA9377`). Long story short, I had to tape two pins on my `AC 3160` that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the adapter from receiving a "power off" signal and keeps it on continuously. 
 
@@ -53,7 +53,7 @@ I went with an Intel for the Wi-Fi and Bluetooth as it was a cheaper solution (I
 
 If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for Apple-branded Broadcom wireless counterparts.
 
-## Not working:
+## :x: Not working:
 
 - /
 

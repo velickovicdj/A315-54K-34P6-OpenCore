@@ -28,13 +28,12 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 - Graphics Acceleration.
 - Battery readout.
 - Keyboard & Trackpad with all macOS gestures.
-- Wi-Fi/Bluetooth (With some modifications for BT).
+- Wi-Fi.
 - USB ports.
 - HDMI video and audio output.
 - Audio (Internal speakers, 3.5mm headphone jack).
 - Internal microphone.
 - iCloud and App Store.
-- AirDrop and Handoff.
 - iMessage and FaceTime.
 
 ## :x: NOT WORKING:

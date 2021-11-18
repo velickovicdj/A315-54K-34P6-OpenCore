@@ -40,8 +40,8 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 ## :x: NOT WORKING:
 
 - Battery cycle count
-
-Not that it cannot be fixed, I just haven't had time to do it yet but will update in the future.
+- Bluetooth (Monterey)
+- AirDrop and Handoff (Monterey)
 
 I managed to get the Wi-Fi working by replacing my original `Qualcomm Atheros QCA9377` with `Intel AC 3160` and with now various Intel wireless adapters being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
 

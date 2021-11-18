@@ -14,7 +14,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 
 ## :computer: HARDWARE:
 
-|                |                          	 |
+| **Category**   | **Component**                 |
 |----------------|-------------------------------|
 |**CPU**		 |`2.3GHz Intel Core i3-7020U`	 |
 |**GPU**		 |`Intel HD 620`				 |

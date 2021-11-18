@@ -12,7 +12,7 @@ This repository contains prebuilt OpenCore files used for booting macOS Monterey
 This is not a guide nor a plug and play EFI folder. This OpenCore configuration is optimized for my specific hardware. Use it only as a reference!
 
 
-## :computer: HARDWARE:
+## :computer: Hardware:
 
 | **Category**   | **Component**                 |
 |----------------|-------------------------------|
@@ -26,7 +26,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 |**Audio** 		 |`Realtek ALC255`				 |
 |**Trackpad**    |`I2C Synaptics`				 |
 
-## :white_check_mark: WORKING:
+## :white_check_mark: Working:
 
 - Graphics Acceleration.
 - Battery readout.
@@ -39,7 +39,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 - iCloud and App Store.
 - iMessage and FaceTime.
 
-## :x: NOT WORKING:
+## :x: Not working:
 
 - Battery cycle count
 - Bluetooth (Monterey)
@@ -47,9 +47,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 
 I managed to get the Wi-Fi working by replacing my original `Qualcomm Atheros QCA9377` with `Intel AC 3160` and with now various Intel wireless adapters being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
 
-## :warning: WARNING:
-
-Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
+:warning: Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration and it wasn't till recently that I found a solution for the Bluetooth not working issue that I had. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprise, it was something quite unexpected. Apparently, it seems like my Intel wireless adapter has some incompatible pins, or may I say a different arrangement from the original one (`QCA9377`). Long story short, I had to tape two pins on my `AC 3160` that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the adapter from receiving a "power off" signal and keeps it on continuously.
 
@@ -65,7 +63,7 @@ If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for
 
 As you can see all this paragraph is mostly related to Wi-Fi and Bluetooth and that's because, other than Wi-Fi/BT (Which are now working), I really haven't had any issues running macOS with this configuration, it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen) but I think it has room for improvement since it's running on NVMe.
  
-## CREDITS:
+## Credits:
 
 [**Acer**](http://acer.com/) for the laptop.
 

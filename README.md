@@ -1,10 +1,13 @@
 # A315-54K-34P6 OpenCore macOS Monterey
 
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.5-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-12.0.1-brightgreen.svg)](https://www.apple.com/macos/monterey)
+
 This repository contains prebuilt OpenCore files used for booting macOS Monterey on Acer Aspire 3 A315-54K-34P6.
 
 <img src="assets/screenshot.jpg">
 
-## :warning: WARNING:
+## :warning: DISCLAIMER:
 
 This is not a guide nor a plug and play EFI folder. This OpenCore configuration is optimized for my specific hardware. Use it only as a reference!
 

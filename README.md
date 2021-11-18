@@ -45,6 +45,10 @@ Not that it cannot be fixed, I just haven't had time to do it yet but will updat
 
 I managed to get the Wi-Fi working by replacing my original `Qualcomm Atheros QCA9377` with `Intel AC 3160` and with now various Intel wireless adapters being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
 
+## :warning: WARNING:
+
+Bluetooth seems to be broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
+
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration and it wasn't till recently that I found a solution for the Bluetooth not working issue that I had. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprise, it was something quite unexpected. Apparently, it seems like my Intel wireless adapter has some incompatible pins, or may I say a different arrangement from the original one (`QCA9377`). Long story short, I had to tape two pins on my `AC 3160` that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the adapter from receiving a "power off" signal and keeps it on continuously.
 
 <img src="assets/m2pinmask.jpg">

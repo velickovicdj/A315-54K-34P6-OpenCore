@@ -47,7 +47,7 @@ I managed to get the Wi-Fi working by replacing my original `Qualcomm Atheros QC
 
 ## :warning: WARNING:
 
-Bluetooth seems to be broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
+Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration and it wasn't till recently that I found a solution for the Bluetooth not working issue that I had. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprise, it was something quite unexpected. Apparently, it seems like my Intel wireless adapter has some incompatible pins, or may I say a different arrangement from the original one (`QCA9377`). Long story short, I had to tape two pins on my `AC 3160` that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the adapter from receiving a "power off" signal and keeps it on continuously.
 

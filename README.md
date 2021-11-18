@@ -9,7 +9,7 @@ This repository contains prebuilt OpenCore files used for booting macOS Monterey
 This is not a guide nor a plug and play EFI folder. This OpenCore configuration is optimized for my specific hardware. Use it only as a reference!
 
 
-## :computer: Hardware:
+## :computer: HARDWARE:
 
 |                |                          	 |
 |----------------|-------------------------------|
@@ -17,13 +17,13 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 |**GPU**		 |`Intel HD 620`				 |
 |**RAM**         |`8GB 2133MHz DDR4`             |
 |**SSD**         |`256GB M.2 PCIe NVMe SSD`		 |
-|**DISPLAY**     |`15,6" 1080p LCD Display`		 |
+|**Display**     |`15,6" 1080p LCD Display`		 |
 |**Wi-Fi/BT**    |`Intel AC 3160`	  			 |
 |**Ethernet**    |`Realtek RTL8111`				 |
-|**AUDIO** 		 |`Realtek ALC255`				 |
+|**Audio** 		 |`Realtek ALC255`				 |
 |**Trackpad**    |`I2C Synaptics`				 |
 
-## :white_check_mark: Working:
+## :white_check_mark: WORKING:
 
 - Graphics Acceleration.
 - Battery readout.
@@ -37,7 +37,7 @@ This is not a guide nor a plug and play EFI folder. This OpenCore configuration 
 - AirDrop and Handoff.
 - iMessage and FaceTime.
 
-## :x: Not working:
+## :x: NOT WORKING:
 
 - Battery cycle count
 
@@ -63,7 +63,7 @@ If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for
 
 As you can see all this paragraph is mostly related to Wi-Fi and Bluetooth and that's because, other than Wi-Fi/BT (Which are now working), I really haven't had any issues running macOS with this configuration, it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen) but I think it has room for improvement since it's running on NVMe.
  
-## Credits:
+## CREDITS:
 
 [**Acer**](http://acer.com/) for the laptop.
 

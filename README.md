@@ -65,7 +65,9 @@ If you want a working Wi-Fi and Bluetooth out of the box, I suggest you look for
 
 As you can see all this paragraph is mostly related to Wi-Fi and Bluetooth and that's because, other than Wi-Fi/BT (Which are now working), I really haven't had any issues running macOS with this configuration, it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen) but I think it has room for improvement since it's running on NVMe.
  
-## Credits:
+ <details>
+## <summary>Credits</summary>
+<br>
 
 [**Acer**](http://acer.com/) for the laptop.
 
@@ -78,3 +80,4 @@ As you can see all this paragraph is mostly related to Wi-Fi and Bluetooth and t
 [**Acidanthera**](https://github.com/acidanthera) for awesome kexts and first-class support for hackintosh enthusiasts.
 
 [**OpenIntelWireless**](https://github.com/OpenIntelWireless) for Intel WI-FI and Bluetooth drivers.
+</details>

@@ -36,16 +36,17 @@ This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://
 - [x] iCloud and App Store.
 - [x] iMessage and FaceTime.
 
+I managed to get the Wi-Fi working by replacing my original `Qualcomm QCA9377` with `Intel AC 3160` and with now various Intel wireless adapters being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder.
+
 ## :x: Not working:
 
 - [ ] Battery cycle count
 	- Not that it cannot be fixed, just that I found about it recently and didn't have time to dig into it yet but will update in the future.
 - [ ] Bluetooth (Monterey)
-- [ ] AirDrop and Handoff (Monterey)
+- [ ] AirDrop and Handoff (Monterey) 
 
-I managed to get the Wi-Fi working by replacing my original `Qualcomm QCA9377` with `Intel AC 3160` and with now various Intel wireless adapters being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless adapter is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless adapter, you should remove `AirportItlwm.kext` from the Kexts folder. 
-
-:warning: Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
+:warning: **WARNING:** 
+Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration and it wasn't till recently that I found a solution for the Bluetooth not working issue that I had. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprise, it was something quite unexpected. 
 

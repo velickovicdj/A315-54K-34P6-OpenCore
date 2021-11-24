@@ -1,4 +1,4 @@
-# A315-54K-34P6 OpenCore macOS Monterey
+# A315-54K-34P6 OpenCore Hackintosh
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.5-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
@@ -26,11 +26,14 @@ This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://
 ## :white_check_mark: Working:
 
 - [x] Graphics Acceleration.
+- [x] CPU power management.
 - [x] Battery readout.
 - [x] Keyboard & Trackpad with all macOS gestures.
 - [x] Wi-Fi.
 - [x] USB ports.
+- [x] Web camera.
 - [x] HDMI video and audio output.
+- [x] Ethernet
 - [x] Audio (Internal speakers, 3.5mm headphone jack).
 - [x] Internal microphone.
 - [x] iCloud and App Store.

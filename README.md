@@ -2,7 +2,7 @@
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.6-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
-[![macOS](https://img.shields.io/badge/macOS-12.0.1-brightgreen.svg)](https://www.apple.com/macos/monterey)
+[![macOS](https://img.shields.io/badge/macOS-12.1-brightgreen.svg)](https://www.apple.com/macos/monterey)
 
 :warning: **DISCLAIMER:**
 This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. I am not responsible for any damage. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same/similar hardware.
@@ -30,12 +30,14 @@ This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://
 - [x] Battery readout.
 - [x] Keyboard & Trackpad with all macOS gestures.
 - [x] Wi-Fi.
+- [x] Bluetooth.
 - [x] USB ports.
 - [x] Web camera.
 - [x] HDMI video and audio output.
 - [x] Ethernet
 - [x] Audio (Internal speakers, 3.5mm headphone jack).
 - [x] Internal microphone.
+- [x] AirDrop and Handoff.
 - [x] iCloud and App Store.
 - [x] iMessage and FaceTime.
 
@@ -45,11 +47,6 @@ I managed to get the Wi-Fi working by replacing my original `Qualcomm QCA9377` w
 
 - [ ] Battery cycle count
 	- Not that it cannot be fixed, just that I found about it recently and didn't have time to dig into it yet but will update in the future.
-- [ ] Bluetooth (Monterey)
-- [ ] AirDrop and Handoff (Monterey) 
-
-:warning: **WARNING:** 
-Bluetooth is broken in Monterey. The below applies to Big Sur and/or previous versions of macOS.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration and it wasn't till recently that I found a solution for the Bluetooth not working issue that I had. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux but to my surprise, it was something quite unexpected. 
 

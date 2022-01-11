@@ -7,7 +7,7 @@
 :warning: **DISCLAIMER:**
 This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. I am not responsible for any damage. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same/similar hardware.
 
-<img src="assets/screenshot.jpeg">
+<img src="assets/screenshot.jpg">
 
 ## :computer: Hardware:
 

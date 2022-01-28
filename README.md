@@ -69,7 +69,7 @@ If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for A
 - [ ] Battery cycle count.
 	- Not that it cannot be fixed, just that I found about it recently and didn't have time to dig into it yet but will update in the future.
 
-Other than the Wi-Fi & Bluetooth (Which are now working), I really haven't had any issues running macOS with this configuration, it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen) but I think it has room for improvement since it's running on NVMe.
+Other than the Wi-Fi & Bluetooth (Which are now working), I haven't had any issues running macOS with this configuration - it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen), but I think it has some room for improvement since it's running on NVMe.
  
 ## Credits:
 

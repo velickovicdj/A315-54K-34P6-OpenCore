@@ -8,7 +8,7 @@
 OpenCore, drivers, and kexts are always up to date!
 
 :warning: **DISCLAIMER:**
-This is not a guide nor a plug-and-play EFI folder, refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. I am not responsible for any damage. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same/similar hardware.
+This is not a guide, please refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. I am not responsible for any damage. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same/similar hardware.
 
 <img src="assets/screenshot.jpg">
 
@@ -66,8 +66,7 @@ If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for A
 
 ## :x: Not working:
 
-- [ ] Battery cycle count.
-	- Not that it cannot be fixed, just that I found about it recently and didn't have time to dig into it yet but will update in the future.
+- /
 
 Other than the Wi-Fi & Bluetooth (Which are now working), I haven't had any issues running macOS with this configuration - it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen), but I think it has some room for improvement since it's running on NVMe.
  

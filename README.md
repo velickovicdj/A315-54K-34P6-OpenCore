@@ -10,7 +10,7 @@ OpenCore, drivers, and kexts are always up to date!
 :warning: **WARNING:**
 This is not a guide, please refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same or similar hardware.
 
-<img src="img/sysinfo.jpg">
+<img src="img/sysinfo.png">
 
 ## Hardware:
 

@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 2, "ACDT", "SsdtEC", 0x00001000)
+DefinitionBlock ("", "SSDT", 2, "ACDT", "ECUSBX", 0x00001000)
 {
     External (_SB_.PCI0.LPCB, DeviceObj)
 
@@ -18,15 +18,11 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "SsdtEC", 0x00001000)
                 }
 
                 Return (Package (0x08)
-                {
-                    "kUSBSleepPowerSupply", 
-                    0x13EC, 
+                { 
                     "kUSBSleepPortCurrentLimit", 
-                    0x0834, 
-                    "kUSBWakePowerSupply", 
-                    0x13EC, 
+                    0x0BB8, 
                     "kUSBWakePortCurrentLimit", 
-                    0x0834
+                    0x0BB8
                 })
             }
 

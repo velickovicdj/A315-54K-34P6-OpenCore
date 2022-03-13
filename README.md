@@ -1,23 +1,23 @@
 # A315-54K-34P6 OpenCore Hackintosh
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.8-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.9-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
 [![macOS](https://img.shields.io/badge/macOS-12.2-brightgreen.svg)](https://www.apple.com/macos/monterey)
 
-:information_source: **The current version is fully macOS Monterey compatible.**
+:information_source: **Current version is fully macOS Monterey compatible.**
 OpenCore, drivers, and kexts are always up to date!
 
-:warning: **DISCLAIMER:**
-This is not a guide, please refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. I am not responsible for any damage. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same or similar hardware.
+:warning: **WARNING:**
+This is not a guide, please refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same or similar hardware.
 
-<img src="img/screenshot.jpg">
+<img src="img/sysinfo.jpg">
 
-## :computer: Hardware:
+## Hardware:
 
 | **Category**   | **Component**                 		|	**Note**			 				      |
 |----------------|--------------------------------------|---------------------------------------------|
 |**CPU**		 |2.3GHz Intel Core i3-7020U	 		|										      |
-|**GPU**		 |Intel HD 620				     		|										      |
+|**iGPU**		 |Intel HD Graphics 620				    |										      |
 |**RAM**         |8GB (4GB non-removable) 2133MHz DDR4  |										      |
 |**SSD**         |256GB M.2 PCIe NVMe SSD		 		|										      |
 |**Display**     |15,6" 1080p LCD non-touch display		|										      |
@@ -26,7 +26,7 @@ This is not a guide, please refer to [Dortania](https://dortania.github.io/getti
 |**Audio** 		 |Realtek ALC255				 		|86 for the layout ID seems to work the best. |
 |**Input**       |PS2 Keyboard & I2C Synaptics TrackPad |										      |
 
-## :white_check_mark: Working:
+## Working/not working:
 
 - [x] CPU power management.
 - [x] Graphics acceleration.
@@ -63,12 +63,6 @@ If your Intel Bluetooth device is not in the [supported list](https://openintelw
 I went with an Intel wireless card for the Wi-Fi & Bluetooth as it was a cheaper solution (I got it for like 5 bucks used), and to be honest, I have no complaints whatsoever. The Wi-Fi & Bluetooth are working perfectly, I would say even better than what I had with `QCA9377` in Linux. For now, I'm just happy that I have 1 more USB port and that I don't have to use a USB Wi-Fi card anymore.
 
 If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for Apple-branded Broadcom wireless counterparts.
-
-## :x: Not working:
-
-- /
-
-Other than the Wi-Fi & Bluetooth (Which are now working), I haven't had any issues running macOS with this configuration - it runs like a charm. Perhaps the only thing I could improve is the boot time. It's not that is slow (takes around 15 seconds from boot picker to login screen), but I think it has some room for improvement since it's running on NVMe.
  
 ## Credits:
 

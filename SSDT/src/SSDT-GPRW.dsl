@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 2, "DRTNIA", "GPRW", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "ACDT", "GPRW", 0x00000000)
 {
     External (XPRW, MethodObj)    // 2 Arguments
 

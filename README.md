@@ -4,27 +4,26 @@
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.9-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
 [![macOS](https://img.shields.io/badge/macOS-12.2-brightgreen.svg)](https://www.apple.com/macos/monterey)
 
-:information_source: **Current version is fully macOS Monterey compatible.**
-OpenCore, drivers, and kexts are always up to date!
-
 :warning: **WARNING:**
-This is not a guide, please refer to [Dortania](https://dortania.github.io/getting-started/) before doing anything. This OpenCore configuration is optimized for my specific hardware, so please use it only as a reference or if you happen to have the same or similar hardware.
+This OpenCore configuration is optimized for my specific hardware, so please read carefully before doing anything or use it only as a reference. I also suggest you to refer to [Dortania](https://dortania.github.io/getting-started) for anything else. 
+
+:information_source: **NOTE:** Although the current version of this EFI is fully compatible with macOS Big Sur and macOS Monterey, I prefer staying with Big Sur since the iGPU performance in Monterey is buggy at this stage.
 
 <img src="img/sysinfo.png">
 
 ## Hardware:
 
-| **Category**   | **Component**                 		|	**Note**			 				      |
-|----------------|--------------------------------------|---------------------------------------------|
-|**CPU**		 |2.3GHz Intel Core i3-7020U	 		|										      |
-|**iGPU**		 |Intel HD Graphics 620				    |										      |
-|**RAM**         |8GB (4GB non-removable) 2133MHz DDR4  |										      |
-|**SSD**         |256GB M.2 PCIe NVMe SSD		 		|										      |
-|**Display**     |15,6" 1080p LCD non-touch display		|										      |
-|**Wi-Fi/BT**    |Intel Dual Band Wireless-AC 3160	  	|Replaced original Qualcomm QCA9377.	      |
-|**Ethernet**    |Realtek RTL8111				 		|										      |
-|**Audio** 		 |Realtek ALC255				 		|86 for the layout ID seems to work the best. |
-|**Input**       |PS2 Keyboard & I2C Synaptics TrackPad |										      |
+|**Category**|**Component**                 	   |**Note**			 				      	|
+|------------|-------------------------------------|--------------------------------------------|
+|**CPU**	 |2.3GHz Intel Core i3-7020U	 	   |										    |
+|**iGPU**	 |Intel HD Graphics 620				   |										    |
+|**RAM**     |8GB (4GB non-removable) 2133MHz DDR4 |										    |
+|**SSD**     |256GB M.2 PCIe NVMe SSD		 	   |										    |
+|**Display** |15,6" 1080p LCD non-touch display	   |No ambient light sensor.					|
+|**Wi-Fi/BT**|Intel Dual Band Wireless-AC 3160	   |Replaced original Qualcomm QCA9377.	      	|
+|**Ethernet**|Realtek RTL8111				 	   |										    |
+|**Audio** 	 |Realtek ALC255				 	   |86 for the layout ID seems to work the best.|
+|**Input**   |PS2 Keyboard & I2C Synaptics TrackPad|										    |
 
 ## Working/not working:
 
@@ -44,31 +43,115 @@ This is not a guide, please refer to [Dortania](https://dortania.github.io/getti
 - [x] iCloud & App Store.
 - [x] iMessage & FaceTime.
 
-I managed to get the Wi-Fi working by replacing my original `Qualcomm QCA9377` with `Intel AC 3160` and with now various Intel wireless cards being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless card is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless card, you should remove `AirportItlwm.kext` from the Kexts folder.
+<details>
+<summary>BIOS</summary>
+<br>
+
+Currently, I'm running on the latest BIOS release for this laptop - [InsydeH20 v1.11 (30.09.2020)](https://www.acer.com/ac/en/IL/content/support-product/8028?b=1), and for the sake of convenience, I unlocked the advanced menu so I could more easily tweak some properties for better compatibility with the macOS. If some of these properties are not present in your BIOS, don't worry because most are not crucial but do try to match as closely as possible.
+
+|**Property**   					 |**Value**                 			|**Note**			 				      	  																									  																		   		|
+|------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**Boot Mode**	 					 |UEFI	 								|<span style="color: red">**Crucial**</span>  																									  																				|
+|**SATA Mode**	 					 |AHCI				    				|<span style="color: red">**Crucial**</span>  																									  																				|
+|**Secure Boot** 					 |Disabled  							|<span style="color: red">**Crucial**</span>  																									  																				|
+|**Fast Boot**   					 |Enabled		 						|I'd recommend disabling it when debugging.	  																									  																				|
+|**Intel VT-d**  					 |Disabled								|Can be enabled if you set `DisableIoMapper` to true under Kernel -> Quirks in config.plist.					  								  																				|
+|**CFG Lock (MSR_E2)**    			 |Disabled	  							|If you cannot find this property then set `AppleXcpmCfgLock` to true under Kernel -> Quirks in config.plist. Your system will not boot otherwise.																				|
+|**DVMT Pre-Allocated Memory**    	 |64MB				 					|Setting it to anything above is unnecessary for MacBookPro14,1 SMBIOS. If you cannot find this property and/or you are not sure if you pre-allocated memory is >= 64MB then you should patch your VRAM (see the details below).|
+
+## How to unlock advanced menu in InsydeH20 BIOS on Acer Aspire 3 series:
+
+- Launch BIOS by tapping the F2 key repeatedly right after booting.
+- When in BIOS, hold down the Power button to force a shutdown.
+- While the laptop is off, press (in order) the following keys: `F4`, `4`, `R`, `F`, `V`, `F5`, `5`, `T`, `G`, `B`, `F6`, `6`, `Y`, `H`, `N`.
+- Launch BIOS again and you should now see all the menus that were hidden before.
+
+There are also other methods for modifying UEFI variables such as the shell method, but I would advise you against them because if done wrong you could brick your laptop.
+
+## VRAM patching:
+
+If your DVMT Pre-Allocated Memory is <= 32MB AND you use my config.plist without necessary tweaking, you will have issues. Follow this guide to patch your VRAM: [Patching VRAM](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/vram.html).
+
+</details>
+
+<details>
+<summary>ACPI</summary>
+<br>
+
+I merged the SSDTs mentioned below into one (SSDT-A315-54K) for a minimal EFI. If that's not something you like, I've included SSDT/src folder where you can find the individual ones.
+
+|**Table**         |**Note**                 			 																																					   |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**SSDT-PLUG**	   |<span style="color: red">**Crucial**</span>	 		 																																	   |
+|**SSDT-PNLF**	   |Fixes backlight.				 																																						   |
+|**SSDT-TPAD**     |My approach for fixing I2C trackpad. 																																					   |
+|**SSDT-ALS0**     |Provides macOS with a fake ambient light sensor device, so it could store the current brightness level and keep it after reboots.		 		 										   |
+|**SSDT-DMAC**     |Provides macOS with a fake Direct Memory Access Controller (DMAC), because the device is present in any Intel-based Mac. The necessity for this SSDT is unknown, consider it as "cosmetic".|
+|**SSDT-EC-USBX**  |<span style="color: red">**Crucial**</span>	 																																			   |
+|**SSDT-SBUS-MCHC**|Fixes AppleSMBus support in macOS.				 		 																																   |
+|**SSDT-MEM2** 	   |Makes the iGPU use MEM2 instead of TMPX, so the IOAccelMemoryInfoUserClient is loaded correctly.			 		 																	   |
+|**SSDT-GPRW**     |Fixes instant wake on USB/power state change.																																			   |
+ 
+</details>
+
+<details>
+<summary>Kexts</summary>
+<br>
+
+The order shown below is also the order of loading.
+
+|**Kext**         								   |**Note**                 			 																										 									   									|
+|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**Lilu**	   									   |<span style="color: red">**Crucial**</span>	 		 																						 									   									|
+|**VirtualSMC**	   								   |<span style="color: red">**Crucial**</span>				 																					 									   									|
+|**SMCBatteryManager**     						   | 																																			 									   									|
+|**SMCProcessor**     							   |		 		 										   																					 									   									|
+|**WhateverGreen**     							   |<span style="color: red">**Crucial**</span>																									 									   									|
+|**AppleALC**  									   |**Compiled it specifically for my ALC255 codec**. If your codec is different, replace this kext. 																				   									|
+|**VoodooPS2Controller + VoodooPS2Keyboard plugin**|				 		 																													 									   									|
+|**VoodooI2C + plugins**   						   |			 		 																	   													 									   									|
+|**AirportItlwm**     	   						   |**I compiled it specifically for my AC 3160 Wi-Fi firmware**. If your **Intel** wireless card is not AC 3160, replace this kext and make sure the version matches your macOS version.								|
+|**IntelBluetoothInjector**						   |Broken in Monterey and will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey.									   									|
+|**IntelBluetoothFirmware**						   |**I compiled it specifically for my AC 3160 Bluetooth firmware**. If your **Intel** wireless card is not AC 3160, replace this kext.		 									   	   								|
+|**RealtekRTL8111**        						   |																																			 									   									|
+|**NVMeFix**     		   						   |																																			 									   									|
+|**USBPorts**     		   						   |**I mapped USB ports specifically for this laptop model**. If your hardware is even slightly different, remove and do your [USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).|
+
+</details>
+
+<details>
+<summary>Wi-Fi/Bluetooth</summary>
+<br>
+
+I managed to get the Wi-Fi working by replacing my original Qualcomm QCA9377 with Intel AC 3160 and with now various Intel wireless cards being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless card is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless card, you should remove AirportItlwm.kext from the Kexts folder.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration, and it wasn't till recently that I worked out a solution for Bluetooth. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux, but to my surprise, it was something quite not expected.
 
-<details>
-<summary>AC 3160 Bluetooth solution</summary>
-<br>
-Apparently, it seems like my Intel wireless card has some incompatible pins, or may I say a different arrangement from the original one (`QCA9377`). Long story short, I had to tape two pins on my `AC 3160` that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the card from receiving a "power off" signal and keeps it on continuously.
+## AC 3160 Bluetooth solution:
+
+Apparently, it seems like my Intel wireless card has some incompatible pins, or may I say a different arrangement from the original one (QCA9377). Long story short, I had to tape two pins on my AC 3160 that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the card from receiving a "power off" signal and keeps it on continuously.
 
 <img align="right" src="img/m2pinmask.jpg">
 
-Since the old card (`QCA9377`) lacked these pins, taping the two in the new one seems to be a solution. If you are facing a similar issue or want to find out more, check out this amazing [**article**](https://thecomputerperson.wordpress.com/2016/11/04/how-to-mask-off-the-wifi-power-off-pins-on-m-2-ngff-wireless-cards-the-old-mini-pci-pin-20-trick/) that cleared it out to me.
+Since the old card (QCA9377) lacked these pins, taping the two in the new one seems to be a solution. If you are facing a similar issue or want to find out more, check out this amazing [**article**](https://thecomputerperson.wordpress.com/2016/11/04/how-to-mask-off-the-wifi-power-off-pins-on-m-2-ngff-wireless-cards-the-old-mini-pci-pin-20-trick) that cleared it out to me.
 
-If your Intel Bluetooth device is not in the [supported list](https://openintelwireless.github.io/IntelBluetoothFirmware/Compat.html) or if you have a different Bluetooth device, you should remove `IntelBluetoothFirmware.kext` from the Kexts folder.
-</details>
+If your Intel Bluetooth device is not in the [supported list](https://openintelwireless.github.io/IntelBluetoothFirmware/Compat.html) or if you have a different Bluetooth device, you should remove IntelBluetoothFirmware.kext from the Kexts folder.
 
-I went with an Intel wireless card for the Wi-Fi & Bluetooth as it was a cheaper solution (I got it for like 5 bucks used), and to be honest, I have no complaints whatsoever. The Wi-Fi & Bluetooth are working perfectly, I would say even better than what I had with `QCA9377` in Linux. For now, I'm just happy that I have 1 more USB port and that I don't have to use a USB Wi-Fi card anymore.
+I went with an Intel wireless card for the Wi-Fi & Bluetooth as it was a cheaper solution (I got it for like $5 used) and to be honest, I have no complaints whatsoever. The Wi-Fi & Bluetooth are working perfectly, I would say even better than what I had with QCA9377 in Linux. For now, I'm just happy that I have 1 more USB port and that I don't have to use a USB Wi-Fi card anymore.
 
 If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for Apple-branded Broadcom wireless counterparts.
- 
+
+</details>
+
+## Special note:
+
+Don't forget to generate your own SMBIOS data and change the corresponding values (`MLB`, `ROM`, `SystemSerialNumber`, `SystemUUID`) under PlatformInfo in config.plist. Luckily, [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) will take care of that for you.
+
 ## Credits:
 
-[**Acer**](http://acer.com/) for the laptop.
+[**Acer**](http://acer.com) for the laptop.
 
-[**Apple**](http://apple.com/) for the macOS.
+[**Apple**](http://apple.com) for the macOS.
 
 [**RehabMan**](https://github.com/RehabMan) for the great guides.
 

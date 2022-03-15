@@ -44,20 +44,20 @@ This OpenCore configuration is optimized for my specific hardware, so please rea
 - [x] iMessage & FaceTime.
 
 <details>
-<summary>BIOS</summary>
+<summary><h2>BIOS</h2></summary>
 <br>
 
-Currently, I'm running on the latest BIOS release for this laptop - [InsydeH20 v1.11 (30.09.2020)](https://www.acer.com/ac/en/IL/content/support-product/8028?b=1), and for the sake of convenience, I unlocked the advanced menu so I could more easily tweak some properties for better compatibility with the macOS. If some of these properties are not present in your BIOS, don't worry because most are not crucial but do try to match as closely as possible.
+Currently, I'm running on the latest BIOS release for this laptop - [InsydeH20 v1.11 (30.09.2020)](https://www.acer.com/ac/en/IL/content/support-product/8028?b=1), and for the sake of convenience, I unlocked the advanced menu so I could more easily tweak some options for better compatibility with the macOS. If some of these options are not present in your BIOS, don't worry because most are not crucial but do try to match as closely as possible.
 
-|**Property**   					 |**Value**                 			|**Note**			 				      	  																									  																		   		|
-|------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Boot Mode**	 					 |UEFI	 								|<span style="color: red">**Crucial**</span>  																									  																				|
-|**SATA Mode**	 					 |AHCI				    				|<span style="color: red">**Crucial**</span>  																									  																				|
-|**Secure Boot** 					 |Disabled  							|<span style="color: red">**Crucial**</span>  																									  																				|
-|**Fast Boot**   					 |Enabled		 						|I'd recommend disabling it when debugging.	  																									  																				|
-|**Intel VT-d**  					 |Disabled								|Can be enabled if you set `DisableIoMapper` to true under Kernel -> Quirks in config.plist.					  								  																				|
-|**CFG Lock (MSR_E2)**    			 |Disabled	  							|If you cannot find this property then set `AppleXcpmCfgLock` to true under Kernel -> Quirks in config.plist. Your system will not boot otherwise.																				|
-|**DVMT Pre-Allocated Memory**    	 |64MB				 					|Setting it to anything above is unnecessary for MacBookPro14,1 SMBIOS. If you cannot find this property and/or you are not sure if you pre-allocated memory is >= 64MB then you should patch your VRAM (see the details below).|
+|**Option**   				  |**Value**|**Note**			 				      	  																									  																		   	  |
+|-----------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**Boot Mode**	 			  |UEFI	    |<span style="color: red">**Crucial**</span>  																									  																			  |
+|**SATA Mode**	 			  |AHCI	    |<span style="color: red">**Crucial**</span>  																									  																			  |
+|**Secure Boot** 			  |Disabled |<span style="color: red">**Crucial**</span>  																									  																			  |
+|**Fast Boot**   			  |Enabled  |I'd recommend disabling it when debugging.	  																									  																			  |
+|**Intel VT-d**  			  |Disabled |Can be enabled if you set `DisableIoMapper` to true under Kernel -> Quirks in config.plist.					  								  																			  |
+|**CFG Lock (MSR_E2)**    	  |Disabled |If you cannot find this option then set `AppleXcpmCfgLock` to true under Kernel -> Quirks in config.plist. Your system will not boot otherwise.																			  |
+|**DVMT Pre-Allocated Memory**|64MB	    |Setting it to anything above is unnecessary for MacBookPro14,1 SMBIOS. If you cannot find this option and/or you are not sure if you pre-allocated memory is >= 64MB then you should patch your VRAM (see the details below).|
 
 ## How to unlock advanced menu in InsydeH20 BIOS on Acer Aspire 3 series:
 
@@ -75,59 +75,62 @@ If your DVMT Pre-Allocated Memory is <= 32MB AND you use my config.plist without
 </details>
 
 <details>
-<summary>ACPI</summary>
+<summary><h2>ACPI</h2></summary>
 <br>
 
-I merged the SSDTs mentioned below into one (SSDT-A315-54K) for a minimal EFI. If that's not something you like, I've included SSDT/src folder where you can find the individual ones.
+I will only describe the SSDTs that are not essential for functioning but are present in my EFI.
 
-|**Table**         |**Note**                 			 																																					   |
+|**SSDT**          |**Note**                 			 																																					   |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**SSDT-PLUG**	   |<span style="color: red">**Crucial**</span>	 		 																																	   |
 |**SSDT-PNLF**	   |Fixes backlight.				 																																						   |
 |**SSDT-TPAD**     |My approach for fixing I2C trackpad. 																																					   |
-|**SSDT-ALS0**     |Provides macOS with a fake ambient light sensor device, so it could store the current brightness level and keep it after reboots.		 		 										   |
+|**SSDT-ALS0**     |Provides macOS with a fake Ambient Light Sensor device (ALS), so it could store the current brightness level and keep it after reboots.		 		 									   |
 |**SSDT-DMAC**     |Provides macOS with a fake Direct Memory Access Controller (DMAC), because the device is present in any Intel-based Mac. The necessity for this SSDT is unknown, consider it as "cosmetic".|
 |**SSDT-EC-USBX**  |<span style="color: red">**Crucial**</span>	 																																			   |
 |**SSDT-SBUS-MCHC**|Fixes AppleSMBus support in macOS.				 		 																																   |
 |**SSDT-MEM2** 	   |Makes the iGPU use MEM2 instead of TMPX, so the IOAccelMemoryInfoUserClient is loaded correctly.			 		 																	   |
 |**SSDT-GPRW**     |Fixes instant wake on USB/power state change.																																			   |
+
+I merged the SSDTs mentioned above into one (SSDT-A315-54K) for a minimal EFI. If that's not something you like, I've included SSDT/src folder where you can find the individual ones.
  
 </details>
 
 <details>
-<summary>Kexts</summary>
+<summary><h2>Kexts</h2></summary>
 <br>
 
-The order shown below is also the order of loading.
+I will only describe the kexts that are worth describing. The order shown below is also the order of loading.
 
-|**Kext**         								   |**Note**                 			 																										 									   									|
-|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Lilu**	   									   |<span style="color: red">**Crucial**</span>	 		 																						 									   									|
-|**VirtualSMC**	   								   |<span style="color: red">**Crucial**</span>				 																					 									   									|
-|**SMCBatteryManager**     						   | 																																			 									   									|
-|**SMCProcessor**     							   |		 		 										   																					 									   									|
-|**WhateverGreen**     							   |<span style="color: red">**Crucial**</span>																									 									   									|
-|**AppleALC**  									   |**Compiled it specifically for my ALC255 codec**. If your codec is different, replace this kext. 																				   									|
-|**VoodooPS2Controller + VoodooPS2Keyboard plugin**|				 		 																													 									   									|
-|**VoodooI2C + plugins**   						   |			 		 																	   													 									   									|
-|**AirportItlwm**     	   						   |**I compiled it specifically for my AC 3160 Wi-Fi firmware**. If your **Intel** wireless card is not AC 3160, replace this kext and make sure the version matches your macOS version.								|
-|**IntelBluetoothInjector**						   |Broken in Monterey and will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey.									   									|
-|**IntelBluetoothFirmware**						   |**I compiled it specifically for my AC 3160 Bluetooth firmware**. If your **Intel** wireless card is not AC 3160, replace this kext.		 									   	   								|
-|**RealtekRTL8111**        						   |																																			 									   									|
-|**NVMeFix**     		   						   |																																			 									   									|
-|**USBPorts**     		   						   |**I mapped USB ports specifically for this laptop model**. If your hardware is even slightly different, remove and do your [USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).|
+|**Kext**         								   |**Note**                 			 																										 									   											|
+|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**Lilu**	   									   |<span style="color: red">**Crucial**</span>	 		 																						 									   											|
+|**VirtualSMC**	   								   |<span style="color: red">**Crucial**</span>				 																					 									   											|
+|**SMCBatteryManager**     						   | 																																			 									   											|
+|**SMCLightSensor**     						   |Supplement to fake ambient light sensor device mentioned in ACPI.		 		 										   																					 				|
+|**SMCProcessor**     							   |Allows preciser measurement of the CPU.		 		 										   																					 									   		|
+|**WhateverGreen**     							   |<span style="color: red">**Crucial**</span>																									 									   											|
+|**AppleALC**  									   |**I Compiled it specifically for my ALC255 codec**. If your codec is different, replace this kext. 																				   											|
+|**VoodooPS2Controller + VoodooPS2Keyboard plugin**|				 		 																													 									   											|
+|**VoodooI2C + plugins**   						   |			 		 																	   													 									   											|
+|**AirportItlwm**     	   						   |**I compiled it specifically for my AC 3160 Wi-Fi firmware**. If your **Intel** wireless card is not AC 3160, replace this kext and make sure the version matches your macOS version.										|
+|**IntelBluetoothInjector**						   |Broken in Monterey and will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey.									   							|
+|**IntelBluetoothFirmware**						   |**I compiled it specifically for my AC 3160 Bluetooth firmware**. If your **Intel** wireless card is not AC 3160, replace this kext.		 									   	   										|
+|**RealtekRTL8111**        						   |																																			 									   											|
+|**NVMeFix**     		   						   |																																			 									   											|
+|**USBPorts**     		   						   |**I mapped USB ports specifically for this laptop model**. If your model is different, you should remove this kext and do your [USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).|
 
 </details>
 
 <details>
-<summary>Wi-Fi/Bluetooth</summary>
+<summary><h2>Wi-Fi/Bluetooth</h2></summary>
 <br>
 
 I managed to get the Wi-Fi working by replacing my original Qualcomm QCA9377 with Intel AC 3160 and with now various Intel wireless cards being supported in macOS (thanks to the [OpenIntelWireless](https://github.com/OpenIntelWireless)), I've been able to get mine up and running as well. If your Intel wireless card is not in the [supported list](https://openintelwireless.github.io/itlwm/Compat.html#dvm-iwn) or if you have a different wireless card, you should remove AirportItlwm.kext from the Kexts folder.
 
 As for the Bluetooth, it was a bit more complicated. It's been months since I successfully booted into macOS with this configuration, and it wasn't till recently that I worked out a solution for Bluetooth. I thought it was faulty hardware as I never got the Bluetooth to work in both macOS and Linux, but to my surprise, it was something quite not expected.
 
-## AC 3160 Bluetooth solution:
+## AC 3160 Bluetooth fix:
 
 Apparently, it seems like my Intel wireless card has some incompatible pins, or may I say a different arrangement from the original one (QCA9377). Long story short, I had to tape two pins on my AC 3160 that are used to sense a Wi-Fi/Bluetooth "power off" signal. Blocking the two pins prevents the card from receiving a "power off" signal and keeps it on continuously.
 
@@ -135,7 +138,7 @@ Apparently, it seems like my Intel wireless card has some incompatible pins, or 
 
 Since the old card (QCA9377) lacked these pins, taping the two in the new one seems to be a solution. If you are facing a similar issue or want to find out more, check out this amazing [**article**](https://thecomputerperson.wordpress.com/2016/11/04/how-to-mask-off-the-wifi-power-off-pins-on-m-2-ngff-wireless-cards-the-old-mini-pci-pin-20-trick) that cleared it out to me.
 
-If your Intel Bluetooth device is not in the [supported list](https://openintelwireless.github.io/IntelBluetoothFirmware/Compat.html) or if you have a different Bluetooth device, you should remove IntelBluetoothFirmware.kext from the Kexts folder.
+If your Intel Bluetooth device is not in the [supported list](https://openintelwireless.github.io/IntelBluetoothFirmware/Compat.html) or if you have a different Bluetooth device, you should remove IntelBluetoothInjector and IntelBluetoothFirmware.kext from the Kexts folder.
 
 I went with an Intel wireless card for the Wi-Fi & Bluetooth as it was a cheaper solution (I got it for like $5 used) and to be honest, I have no complaints whatsoever. The Wi-Fi & Bluetooth are working perfectly, I would say even better than what I had with QCA9377 in Linux. For now, I'm just happy that I have 1 more USB port and that I don't have to use a USB Wi-Fi card anymore.
 
@@ -145,7 +148,7 @@ If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for A
 
 ## Special note:
 
-Don't forget to generate your own SMBIOS data and change the corresponding values (`MLB`, `ROM`, `SystemSerialNumber`, `SystemUUID`) under PlatformInfo in config.plist. Luckily, [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) will take care of that for you.
+Don't forget to generate your own SMBIOS data and change the corresponding values (`MLB`, `ROM`, `SystemSerialNumber`, `SystemUUID`) under PlatformInfo in config.plist. Luckily, [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) can take care of that for you.
 
 ## Credits:
 

@@ -125,6 +125,7 @@ PlatformInfo section of the config.plist is left empty for security reasons. You
 
 ## Miscellaneous
 
+<details>
 <summary><h3>Wi-Fi/Bluetooth</h3></summary>
 <br>
 
@@ -157,8 +158,6 @@ If you want a working Wi-Fi & Bluetooth out of the box, I suggest you look for A
 Other than `PciRoot(0x0)/Pci(0x1F,0x3)` and `PciRoot(0x0)/Pci(0x2,0x0)`, all other entries under DeviceProperties -> Add are purely cosmetic and you can safely remove them if you wish so.
 
 </details>
-
-<details>
 
 <details>
 <summary><h3>OpenCore beauty treatment</h3></summary>

@@ -13,17 +13,17 @@ This OpenCore configuration is optimized for my specific hardware, so please rea
 
 ## Hardware
 
-|**Category**|**Component**                 	   |**Note**			 				      	|
-|------------|-------------------------------------|--------------------------------------------|
-|**CPU**	 |2.3GHz Intel Core i3-7020U	 	   |										    |
-|**iGPU**	 |Intel HD Graphics 620				   |										    |
-|**RAM**     |8GB (4GB non-removable) 2133MHz DDR4 |										    |
-|**SSD**     |256GB M.2 PCIe NVMe SSD		 	   |										    |
-|**Display** |15,6" 1080p LCD non-touch display	   |No ambient light sensor.					|
-|**Wi-Fi/BT**|Intel Dual Band Wireless-AC 3160	   |Replaced original Qualcomm QCA9377.	      	|
-|**Ethernet**|Realtek RTL8111				 	   |										    |
-|**Audio** 	 |Realtek ALC255				 	   |86 for the layout ID seems to work the best.|
-|**Input**   |PS2 Keyboard & I2C Synaptics TrackPad|										    |
+|**Category**|**Component**                 	   |**Note**			 				      	   |
+|------------|-------------------------------------|-----------------------------------------------|
+|**CPU**	 |2.3GHz Intel Core i3-7020U	 	   |										       |
+|**iGPU**	 |Intel HD Graphics 620				   |										       |
+|**RAM**     |12GB (4GB non-removable) 2133MHz DDR4|Replaced the original 4GB with a new 8GB stick.|
+|**SSD**     |256GB M.2 PCIe NVMe SSD		 	   |										       |
+|**Display** |15,6" 1080p LCD non-touch display	   |No ambient light sensor.					   |
+|**Wi-Fi/BT**|Intel Dual Band Wireless-AC 3160	   |Replaced original Qualcomm QCA9377.	      	   |
+|**Ethernet**|Realtek RTL8111				 	   |										       |
+|**Audio** 	 |Realtek ALC255				 	   |86 for the layout ID seems to work the best.   |
+|**Input**   |PS2 Keyboard & I2C Synaptics TrackPad|										       |
 
 ## Working/not working
 
@@ -163,7 +163,7 @@ Other than `PciRoot(0x0)/Pci(0x1F,0x3)` and `PciRoot(0x0)/Pci(0x2,0x0)`, all oth
 <summary><h3>OpenCore beauty treatment</h3></summary>
 <br>
 
-This EFI is aesthetically configured to include OpenCore's GUI and boot-chime. You can disable boot-chime by setting `PlayChime` to `Disabled` under UEFI -> Audio. in config.plist.
+This EFI is aesthetically configured to include OpenCore's GUI and boot-chime. You can disable boot-chime by setting `PlayChime` to `Disabled` under UEFI -> Audio in config.plist.
 I also applied my custom theme for OpenCanopy (see it here: [EnterTwilight](https://github.com/velickovicdj/OpenCanopy-EnterTwilight)). You can change the desired theme at any time by changing the `PickerVariant` value in config.plist with respect to the path of the theme in the OC/Resources/Image folder (E.g. `PickerVariant` value `Acidanthera/GoldenGate` corresponds to the path OC/Resources/Image/Acidanthera/GoldenGate).
 
 I prefer the skipping boot picker and going straight to macOS, but if you wish to have it on every boot set `ShowPicker` to `true` under Misc -> Boot in config.plist.

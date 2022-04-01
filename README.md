@@ -166,11 +166,11 @@ Other than `PciRoot(0x0)/Pci(0x1F,0x3)` and `PciRoot(0x0)/Pci(0x2,0x0)`, all oth
 This EFI is aesthetically configured to include OpenCore's GUI and boot-chime. You can disable boot-chime by setting `PlayChime` to `Disabled` under UEFI -> Audio in config.plist.
 I also applied my custom theme for OpenCanopy (see it here: [EnterTwilight](https://github.com/velickovicdj/OpenCanopy-EnterTwilight)). You can change the desired theme at any time by changing the `PickerVariant` value in config.plist with respect to the path of the theme in the OC/Resources/Image folder (E.g. `PickerVariant` value `Acidanthera/GoldenGate` corresponds to the path OC/Resources/Image/Acidanthera/GoldenGate).
 
-I prefer the skipping boot picker and going straight to macOS, but if you wish to have it on every boot set `ShowPicker` to `true` under Misc -> Boot in config.plist.
+I prefer skipping the boot picker and going straight to macOS, but if you wish to have it on every boot set `ShowPicker` to `true` under Misc -> Boot in config.plist.
 
 **TIP 1:** You can slightly speed up the boot time by setting `ConnectDrivers` to `false` under UEFI in config.plist, but you'll have to give up on the fancy boot-chime.
 
-**TIP 2:** Even if `ShowPicker` is set to `false`, you can still access the boot picker by holding the escape key, just make sure that `PollAppleHotKeys` is set to `true`.
+**TIP 2:** Even if `ShowPicker` is set to `false`, you can still access the OpenCore boot picker by holding the escape key when booting, just make sure that `PollAppleHotKeys` is set to `true`.
 
 </details>
 

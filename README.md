@@ -7,7 +7,9 @@
 :warning: **WARNING:**
 This OpenCore configuration is optimized for my specific hardware, so please read carefully before doing anything or use it only as a reference. I suggest you to refer to [Dortania](https://dortania.github.io/getting-started) for anything else. 
 
-![System Information](/img/sysinfo.png)
+<p align="center">
+  <img src="/img/sysinfo.png" alt="System Information">
+</p>
 
 ## Hardware
 
@@ -111,7 +113,8 @@ I will only describe the kexts that are worth describing. The order shown below 
 |**VoodooI2C + plugins**   						   |			 		 																	   													 									   											|
 |**VoodooI2CHID**     		   					   |																																			 									   											|
 |**AirportItlwm**     	   						   |**I compiled it specifically for my AC 3160 Wi-Fi firmware**. If your **Intel** wireless card is not AC 3160, replace this kext and make sure the version matches your macOS version.										|
-|**IntelBluetoothInjector**						   |Broken in Monterey and Ventura, will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey or Ventura.									   							|
+|**IntelBTPatcher**						   | |
+|**BlueToolFixup**						   | |
 |**IntelBluetoothFirmware**						   |**I compiled it specifically for my AC 3160 Bluetooth firmware**. If your **Intel** wireless card is not AC 3160, replace this kext.		 									   	   										|
 |**RealtekRTL8111**        						   |																																			 									   											|
 |**NVMeFix**     		   						   |Optimizes power and energy consumption on non-Apple SSDs.																																			 						|

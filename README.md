@@ -1,13 +1,11 @@
 # A315-54K-34P6 OpenCore Hackintosh
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.9-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
-[![macOS](https://img.shields.io/badge/macOS-12.2-brightgreen.svg)](https://www.apple.com/macos/monterey)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.1-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-13.3.1-brightgreen.svg)](https://www.apple.com/macos/ventura)
 
 :warning: **WARNING:**
 This OpenCore configuration is optimized for my specific hardware, so please read carefully before doing anything or use it only as a reference. I suggest you to refer to [Dortania](https://dortania.github.io/getting-started) for anything else. 
-
-:information_source: **NOTE:** Although the current version of this EFI is fully compatible with macOS Big Sur and macOS Monterey, I prefer staying with Big Sur since the iGPU performance in Monterey is buggy at this stage.
 
 ![System Information](/img/sysinfo.png)
 
@@ -22,7 +20,7 @@ This OpenCore configuration is optimized for my specific hardware, so please rea
 |**Display** |15,6" 1080p LCD non-touch display	   |No ambient light sensor.					   |
 |**Wi-Fi/BT**|Intel Dual Band Wireless-AC 3160	   |Replaced original Qualcomm QCA9377.	      	   |
 |**Ethernet**|Realtek RTL8111				 	   |										       |
-|**Audio** 	 |Realtek ALC255				 	   |86 for the layout ID seems to work the best.   |
+|**Audio** 	 |Realtek ALC255				 	   |69 for the layout ID seems to work the best.   |
 |**Input**   |PS2 Keyboard & I2C Synaptics TrackPad|										       |
 
 ## Working/not working
@@ -113,7 +111,7 @@ I will only describe the kexts that are worth describing. The order shown below 
 |**VoodooI2C + plugins**   						   |			 		 																	   													 									   											|
 |**VoodooI2CHID**     		   					   |																																			 									   											|
 |**AirportItlwm**     	   						   |**I compiled it specifically for my AC 3160 Wi-Fi firmware**. If your **Intel** wireless card is not AC 3160, replace this kext and make sure the version matches your macOS version.										|
-|**IntelBluetoothInjector**						   |Broken in Monterey and will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey.									   							|
+|**IntelBluetoothInjector**						   |Broken in Monterey and Ventura, will significantly slow down boot. Replace with [BlueToolFixup](https://github.com/acidanthera/BrcmPatchRAM/releases) if in Monterey or Ventura.									   							|
 |**IntelBluetoothFirmware**						   |**I compiled it specifically for my AC 3160 Bluetooth firmware**. If your **Intel** wireless card is not AC 3160, replace this kext.		 									   	   										|
 |**RealtekRTL8111**        						   |																																			 									   											|
 |**NVMeFix**     		   						   |Optimizes power and energy consumption on non-Apple SSDs.																																			 						|

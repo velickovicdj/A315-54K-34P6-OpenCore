@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>21D62</string>
+	<string>22E261</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.7.0</string>
+	<string>1.8.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,23 +25,23 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.7.0</string>
+	<string>1.8.2</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>13C100</string>
+	<string></string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>12.1</string>
+	<string>13.3</string>
 	<key>DTSDKBuild</key>
-	<string>21C46</string>
+	<string>22E245</string>
 	<key>DTSDKName</key>
-	<string>macosx12.1</string>
+	<string>macosx13.3</string>
 	<key>DTXcode</key>
-	<string>1321</string>
+	<string>1430</string>
 	<key>DTXcodeBuild</key>
-	<string>13C100</string>
+	<string>14E222b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>ALCUserClientProvider</key>
@@ -71,22 +71,22 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
-					<string>Mirone - Realtek ALC255</string>
+					<string>juniorcaesar - Acer Aspire A315-56-327T ALC255</string>
 					<key>CodecID</key>
 					<integer>283902549</integer>
 					<key>ConfigData</key>
 					<data>
-					ASccEAEnHQABJx6mAScfkAFHHCABRx0AAUce
-					FwFHH5ABlxwwAZcdEAGXHosBlx8AAhccUAIX
-					HRACFx4rAhcfAgFHDAI=
+					AZccEAGXHRABlx6LAZcfAQFHHCABRx0QAUce
+					FwFHH5ABRwwCAhccMAIXHRACFx4rAhcfAQIX
+					DAICFwiDASccQAEnHQABJx6gAScfkAGXByI=
 					</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
-					<integer>3</integer>
+					<integer>69</integer>
 					<key>WakeConfigData</key>
 					<data>
-					AUcMAg==
+					AUcMAgIXDAICFwiDAZcHIg==
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>

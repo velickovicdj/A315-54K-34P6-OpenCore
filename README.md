@@ -1,7 +1,7 @@
 # A315-54K-34P6 OpenCore Hackintosh
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.2-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-0.9.3-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
 [![macOS](https://img.shields.io/badge/macOS-13.4-brightgreen.svg)](https://www.apple.com/macos/ventura)
 
 :warning: **WARNING:**

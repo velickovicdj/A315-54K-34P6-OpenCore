@@ -766,6 +766,8 @@
 			<false/>
 			<key>HideAuxiliary</key>
 			<true/>
+			<key>InstanceIdentifier</key>
+			<string></string>
 			<key>LauncherOption</key>
 			<string>Disabled</string>
 			<key>LauncherPath</key>
@@ -995,7 +997,7 @@
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1F,0x3)</string>
 			<key>AudioOutMask</key>
-			<integer>1</integer>
+			<integer>-1</integer>
 			<key>AudioSupport</key>
 			<true/>
 			<key>DisconnectHda</key>
@@ -1005,7 +1007,7 @@
 			<key>MinimumAssistGain</key>
 			<integer>-30</integer>
 			<key>MinimumAudibleGain</key>
-			<integer>-55</integer>
+			<integer>-128</integer>
 			<key>PlayChime</key>
 			<string>Enabled</string>
 			<key>ResetTrafficClass</key>

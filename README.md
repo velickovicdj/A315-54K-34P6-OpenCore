@@ -2,7 +2,7 @@
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.9.8-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
-[![macOS](https://img.shields.io/badge/macOS-13.6.4-brightgreen.svg)](https://www.apple.com/macos/ventura)
+[![macOS](https://img.shields.io/badge/macOS-13.6.5-brightgreen.svg)](https://www.apple.com/macos/ventura)
 
 :warning: **WARNING:**
 This OpenCore configuration is optimized for my specific hardware, so please read carefully before doing anything or use it only as a reference. I suggest you to refer to [Dortania](https://dortania.github.io/getting-started) for anything else. 

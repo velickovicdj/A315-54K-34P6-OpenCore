@@ -1,8 +1,8 @@
 # A315-54K-34P6 OpenCore Hackintosh
 
 [![Status](https://img.shields.io/badge/Status-Maintained-blue.svg)](https://github.com/velickovicdj/A315-54K-34P6-OpenCore)
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.1-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
-[![macOS](https://img.shields.io/badge/macOS-13.6.9-brightgreen.svg)](https://www.apple.com/macos/ventura)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.3-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![macOS](https://img.shields.io/badge/macOS-13.7.3-brightgreen.svg)](https://www.apple.com/macos/ventura)
 
 :warning: **WARNING:**
 This OpenCore configuration is optimized for my specific hardware, so please read carefully before doing anything or use it only as a reference. I suggest you to refer to [Dortania](https://dortania.github.io/getting-started) for anything else. 
